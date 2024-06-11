@@ -1,0 +1,15 @@
+Create table Users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255),
+    username VARCHAR(255),
+    email VARCHAR(255),
+    password VARCHAR(255),
+    PRIMARY KEY (username)
+);
+
+CREATE TABLE files (
+    user_id INT,
+    questions VARCHAR(255),
+    FOREIGN KEY (user_id) REFERENCES Users(id),
+    CONSTRAINT unique_user_question UNIQUE (user_id, questions)
+);
